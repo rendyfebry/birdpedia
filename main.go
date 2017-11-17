@@ -10,6 +10,8 @@ import (
 func newRouter() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/hello", handler).Methods("GET")
+	r.HandleFunc("/bird", getBirdHandler).Methods("GET")
+	r.HandleFunc("/bird", createBirdHandler).Methods("POST")
 
 	staticFileDirectory := http.Dir("./assets/")
 
